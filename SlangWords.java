@@ -221,6 +221,33 @@ public class SlangWords {
         Menu();
     }
 
+    public static void Function_5() {
+        System.out.println("\n");
+        String slang;       
+
+        do {
+            System.out.print("Enter Slang word you want to edit: ");
+            slang = sc.nextLine();
+            
+            if(m.containsKey(slang))
+                break;
+            else
+                System.out.println("This Slang word does not exist!");
+        }
+        while(!m.containsKey(slang));
+        
+        System.out.print("Enter new Meaning: ");
+        String means = sc.nextLine();
+            
+        List<String> tmp = new ArrayList<String>();
+        tmp.add(means);
+        m.put(slang, tmp);
+        writeFile(fileName);
+        System.out.println("Edit successfully!!");
+        
+        Menu();
+    }
+
     public static void Menu() {
         
         System.out.println("\n==========================================");
@@ -253,10 +280,10 @@ public class SlangWords {
         else if (choice == 4) {
             Function_4();
         }
-        /*else if (choice == 5) {
+        else if (choice == 5) {
             Function_5();
         }
-        else if (choice == 6) {
+        /*else if (choice == 6) {
             Function_6();
         }
         else if (choice == 7) {
