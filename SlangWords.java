@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-//import java.util.Random;
+import java.util.Random;
 import java.util.Scanner;
 
 public class SlangWords {
@@ -126,6 +126,11 @@ public class SlangWords {
         tmp.add(means);
         m.put(slang, tmp);
         System.out.println("Add successfully!!!");
+    }
+
+    public static String randomKey() {
+        Object[] Keys = m.keySet().toArray();
+        return (String)Keys[new Random().nextInt(Keys.length)];
     }
         
     public static void Function_1() {
@@ -291,6 +296,18 @@ public class SlangWords {
         
         Menu();
     }
+
+    public static void Function_8() {
+        System.out.println("\n");
+        String random = randomKey();
+        
+        System.out.println("Ramdom Slang word:");
+        System.out.print("- " + random + ": ");
+        showDefinition(random);
+        
+        Menu();
+    }
+    
 
     public static void Menu() {
         
