@@ -112,6 +112,21 @@ public class SlangWords {
         }
         System.out.print("\b\b     \n");
     }
+    
+    public static void addSlang(String slang, String means) {
+            ArrayList<String> tmp = new ArrayList<String>();
+            tmp.add(means);
+            m.put(slang, tmp);
+            System.out.println("Add successfully!!!");
+    }
+
+    public static void duplicate(String slang, String means) {
+        List<String> tmp = new ArrayList<String>();
+        tmp = m.get(slang);
+        tmp.add(means);
+        m.put(slang, tmp);
+        System.out.println("Add successfully!!!");
+    }
         
     public static void Function_1() {
         
@@ -174,6 +189,37 @@ public class SlangWords {
         
         Menu();
     }
+    
+    public static void Function_4() {
+        
+        System.out.println("\n");
+        System.out.print("Enter Slang word: ");
+        String slang = sc.nextLine();
+
+        System.out.print("Enter meanings: ");
+        String means = sc.nextLine();
+ 
+        if (m.containsKey(slang)) {
+            System.out.println("This Slang word was existed, you want to choose: ");
+            System.out.println("1. Overwrite");
+            System.out.println("2. Dupicate");
+            int c = sc.nextInt();
+            if (c == 1) {
+                addSlang(slang, means);
+                writeFile(fileName);
+            }
+            else if (c == 2) {
+                duplicate(slang, means);
+                writeFile(fileName);
+            }
+        }
+        else {
+            addSlang(slang, means);
+            writeFile(fileName);
+        }
+        
+        Menu();
+    }
 
     public static void Menu() {
         
@@ -204,10 +250,10 @@ public class SlangWords {
         else if (choice == 3) {
             Function_3();
         }
-        /*else if (choice == 4) {
+        else if (choice == 4) {
             Function_4();
         }
-        else if (choice == 5) {
+        /*else if (choice == 5) {
             Function_5();
         }
         else if (choice == 6) {
