@@ -104,6 +104,14 @@ public class SlangWords {
 
         return his;
     }
+
+    public static void showDefinition(String i) {
+        List<String> list = m.get(i);
+        for (String s: list) {
+            System.out.print(s + ", ");
+        }
+        System.out.print("\b\b     \n");
+    }
         
     public static void Function_1() {
         
@@ -121,6 +129,36 @@ public class SlangWords {
             for (String s: list) {
                 System.out.println("- " + s);
             }
+        }
+        
+        Menu();
+    }
+
+    public static void Function_2() {
+        
+        System.out.println("\n");
+        ArrayList<String> means = new ArrayList<String>();
+        System.out.print("Enter any word to find a Slang word: ");
+        String word = sc.nextLine();
+
+        history.add(word);
+        for (String i : m.keySet()) {
+            for (String s: m.get(i)) {
+                if (s.contains(word)) {
+                    means.add(i);
+                }
+            }
+        }
+
+        if (!means.isEmpty()) {
+            System.out.println("Slang words found: ");
+            for (String i : means) {
+                System.out.print("- " + i + ": ");
+                showDefinition(i);
+            }
+        }
+        else {
+            System.out.println("Not Found!");
         }
         
         Menu();
