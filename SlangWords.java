@@ -14,7 +14,7 @@ public class SlangWords {
     public static Scanner sc = new Scanner(System.in);
     public static HashMap<String, List<String>> m = new HashMap<String, List<String>>();
     public static ArrayList<String> history = new ArrayList<String>();
-
+    
     public static void readFile(String fileName) {
         try {
             FileReader fr = new FileReader(fileName);
@@ -104,7 +104,7 @@ public class SlangWords {
 
         return his;
     }
-
+    
     public static void showDefinition(String i) {
         List<String> list = m.get(i);
         for (String s: list) {
@@ -127,7 +127,7 @@ public class SlangWords {
         m.put(slang, tmp);
         System.out.println("Add successfully!!!");
     }
-
+    
     public static String randomKey() {
         Object[] Keys = m.keySet().toArray();
         return (String)Keys[new Random().nextInt(Keys.length)];
@@ -153,7 +153,7 @@ public class SlangWords {
         
         Menu();
     }
-
+    
     public static void Function_2() {
         
         System.out.println("\n");
@@ -183,7 +183,7 @@ public class SlangWords {
         
         Menu();
     }
-
+    
     public static void Function_3() {
         
         System.out.println("\n");
@@ -194,7 +194,7 @@ public class SlangWords {
         
         Menu();
     }
-    
+
     public static void Function_4() {
         
         System.out.println("\n");
@@ -307,7 +307,7 @@ public class SlangWords {
         
         Menu();
     }
-    
+
     public static void Function_9() {
         
         System.out.println("\n");
@@ -340,6 +340,38 @@ public class SlangWords {
         Menu();
     }
 
+    public static void Function_10() {
+        
+        System.out.println("\n");
+        Random r = new Random();
+        List<String> choice = new ArrayList<String>();
+        for(int i = 0; i < 4; i++) {
+            String word = randomKey();
+            choice.add(word);
+        }
+
+        String ans_key = choice.get(r.nextInt(choice.size()));
+
+        System.out.println(">> Definition:");
+        showDefinition(ans_key);
+        System.out.println(">> What is the Slang word of the above definition? Choose your answer (1-4)");
+        int index = 1;
+        for (String i : choice) {
+            System.out.println(index + ". " + i);
+            index++;
+        }
+        System.out.print(">>> Your answer: ");
+        int input = sc.nextInt();
+        if (choice.get(input - 1).equals(ans_key)){
+            System.out.println(">>> Congratulation! You won the game!!!");
+        }
+        else {
+            System.out.println(">>> You losed the game!!!");
+        }
+        
+        Menu();
+    }
+    
     public static void Menu() {
         
         System.out.println("\n==========================================");
