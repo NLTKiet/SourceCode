@@ -164,6 +164,17 @@ public class SlangWords {
         Menu();
     }
 
+    public static void Function_3() {
+        
+        System.out.println("\n");
+        System.out.println("History:");
+        for (String s : history) {
+            System.out.println("- " + s);
+        }
+        
+        Menu();
+    }
+
     public static void Menu() {
         
         System.out.println("\n==========================================");
@@ -187,13 +198,13 @@ public class SlangWords {
         if (choice == 1) {
             Function_1();
         }
-        /*else if (choice == 2) {
+        else if (choice == 2) {
             Function_2();
         }
         else if (choice == 3) {
             Function_3();
         }
-        else if (choice == 4) {
+        /*else if (choice == 4) {
             Function_4();
         }
         else if (choice == 5) {
