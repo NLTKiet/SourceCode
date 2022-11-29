@@ -308,6 +308,37 @@ public class SlangWords {
         Menu();
     }
     
+    public static void Function_9() {
+        
+        System.out.println("\n");
+        Random r = new Random();
+        List<String> choice = new ArrayList<String>();
+        for(int i = 0; i < 4; i++) {
+            String word = randomKey();
+            choice.add(word);
+        }
+
+        String ans_key = choice.get(r.nextInt(choice.size()));
+
+        System.out.println(">> Slang word: " + ans_key);
+        System.out.println(">> What is the definition of the above Slang word? Choose your answer (1-4)");
+        int index = 1;
+        for (String i : choice) {
+            System.out.print(index + ". ");
+            showDefinition(i);
+            index++;
+        }
+        System.out.print(">>> Your answer: ");
+        int input = sc.nextInt();
+        if (choice.get(input - 1).equals(ans_key)){
+            System.out.println(">>> Congratulation! You answered correctly!");
+        }
+        else {
+            System.out.println(">>> Unfortunately, You gave the wrong answer!");
+        }
+        
+        Menu();
+    }
 
     public static void Menu() {
         
