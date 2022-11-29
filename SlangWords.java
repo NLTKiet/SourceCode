@@ -248,6 +248,35 @@ public class SlangWords {
         Menu();
     }
 
+    public static void Function_6() {
+        System.out.println("\n");
+        String slang;
+        
+        do {
+            System.out.print("Enter Slang word you want to delete: ");
+            slang = sc.nextLine();
+            
+            if(m.containsKey(slang))
+                break;
+            else
+                System.out.print("This Slang word does not exist!");
+        }
+        while(!m.containsKey(slang));
+        
+        System.out.println("Are you sure you want to delete (yes/no)? ");
+        String choice = sc.next();
+        if (choice.equals("yes")) {
+            m.remove(slang);
+            writeFile(fileName);
+            System.out.println("Delete successfully!!");
+        }
+        else {
+            System.out.println("Not delete!");
+        }
+        
+        Menu();
+    }
+
     public static void Menu() {
         
         System.out.println("\n==========================================");
@@ -283,7 +312,7 @@ public class SlangWords {
         else if (choice == 5) {
             Function_5();
         }
-        /*else if (choice == 6) {
+        else if (choice == 6) {
             Function_6();
         }
         else if (choice == 7) {
@@ -297,7 +326,7 @@ public class SlangWords {
         }
         else if (choice == 10) {
             Function_10();
-        }*/
+        }
         else {
             writeHistory("history.txt");
             System.exit(0);
